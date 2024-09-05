@@ -1,32 +1,45 @@
+// src/components/Header.js
+
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
-const HeaderContainer = styled.header`
-  background: #282c34;
-  padding: 20px;
-  color: white;
+const NavBar = styled.nav`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  padding: 15px;
   text-align: center;
-`;
+  z-index: 10;
 
-const NavLinks = styled.nav`
   a {
     margin: 0 15px;
     color: white;
     font-weight: bold;
+    font-size: 1.2rem;
+    text-decoration: none;
+
+    &:hover {
+      color: #ff6347;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+      font-size: 1rem;
+    }
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+      font-size: 0.9rem;
+    }
   }
 `;
 
 const Header = () => (
-  <HeaderContainer>
-    <h1>Citizen's Naija</h1>
-    <NavLinks>
-      <Link to="/">Home</Link>
-      <Link to="/features">Features</Link>
-      <Link to="/about">About</Link>
-      <Link to="/contact">Contact</Link>
-    </NavLinks>
-  </HeaderContainer>
+  <NavBar>
+    <a href="#home">Home</a>
+    <a href="#features">Features</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </NavBar>
 );
 
 export default Header;

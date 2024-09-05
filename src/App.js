@@ -1,28 +1,24 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Routes,
-} from "react-router-dom";
-import HomePage from "./pages/HomePage";
-import FeaturesPage from "./pages/FeaturesPage";
-import AboutPage from "./pages/AboutPage";
-import ContactPage from "./pages/ContactPage";
+// src/App.js
+
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import theme from "./styles/theme"; // Import your theme
+import SinglePage from "./pages/SinglePage";
+import ReportIssues from "./components/ReportIssues";
 import Header from "./components/Header";
-import GlobalStyle from "./styles/GlobalStyle";
 
 function App() {
   return (
-    <Router>
-      <GlobalStyle />
-      <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/features" element={<FeaturesPage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/contact" element={<ContactPage />} />
-      </Routes>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <Header />
+        <Routes>
+          <Route path="/" element={<SinglePage />} />
+          <Route path="/report" element={<ReportIssues />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 

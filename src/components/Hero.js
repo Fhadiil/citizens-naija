@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const HeroSection = styled.section`
-  background: url("/path-to-hero-image.jpg") no-repeat center center/cover;
+  background: url("https://wallpapercave.com/wp/wp3438359.png") no-repeat center
+    center/cover;
   height: 400px;
   display: flex;
   flex-direction: column;
